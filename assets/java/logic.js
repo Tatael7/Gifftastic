@@ -1,6 +1,5 @@
 //hello world
 
-
 var test = "ufc";
 
 // var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + test + "&api_key=lrBVvkogHvFM0M7SIt1N7bIGmqZMJ5ts&limit=10";
@@ -38,6 +37,17 @@ $(document).ready(function() {
             method: "GET"
         }).then(function(response) {
             console.log(response);
+
+            var result = response.data;
+            console.log(result);
+            var foto = $("<img>");
+
+            foto.attr("src", result[0].images.fixed_height.url);
+            foto.attr("alt", "picture of something")
+
+            $("#coolStuff").prepend(foto);
+
+
         });
     });
 });
